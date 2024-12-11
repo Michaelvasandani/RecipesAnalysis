@@ -1,3 +1,7 @@
+**Analysis of Power Outages in the United States** 
+
+DSC 80 Project 
+By Michael Vasandani & Omar Ali
 
 ---
 
@@ -46,10 +50,6 @@ In this project, we analyze power outage data across the United States to identi
 4. **Normalize Population and Urban Data**  
    I combined the columns `POPULATION_URBAN`, `POPULATION_DENSITY_URBAN`, and `AREA_PERCENT_URBAN` into a single column named `URBAN`. This column accounts for the percent of a state’s population in urban areas, population density, and the proportion of the state classified as urban. This allows for better comparisons between states with different urbanization levels.
 
-5. **Validate Data Integrity**  
-   Finally, I checked all columns to ensure they had the correct data types. For instance:
-   - Numerical columns such as `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, and `DEMAND.LOSS.MW` were converted to `float`.
-   - Categorical columns, such as `CAUSE.CATEGORY`, were converted to categorical data types to optimize memory usage and processing speed.
   
 ## Outage Data
 
@@ -100,14 +100,15 @@ The line inside each box represents the median, which shows the typical number o
 
 Some years, like 2004, 2012, and 2014, show larger ranges of variability, with wider IQRs. This suggests those years had both small, localized outages and larger, widespread ones. On the other hand, years like 2000, 2010, and 2016 have tighter distributions, indicating more consistent levels of customer impact across events.
 
-Certain years also stand out for their high-impact outliers. For instance, 2002, 2014, and 2008 had significant events that affected a much larger number of customers compared to the typical outages of those years. These spikes likely align with major weather events or infrastructure issues that need further investigation.
+Certain years also stand out for their high-impact outliers. For instance, 2002, 2014, and 2008 had significant events that affected a much larger number of customers compared to the typical outages of those years. These spikes likely align with major weather events or infrastructure issues that need further investigation. 
 
 This analysis highlights how the severity of power outages changes over time. By focusing on years with greater variability or extreme events, we can dig deeper into the factors—like weather patterns or infrastructure failures—that contribute to significant disruptions.
+
 ---
 
 ## Grouping and Aggregates 
 
-## Cause Category by Year
+### Cause Category by Year
 
 | YEAR    | Equipment Failure | Fuel Supply Emergency | Intentional Attack | Islanding | Public Appeal | Severe Weather | System Operability Disruption |
 |---------|-------------------|-----------------------|--------------------|-----------|---------------|----------------|-------------------------------|
@@ -129,26 +130,26 @@ This analysis highlights how the severity of power outages changes over time. By
 | 2015.0  | 0.0               | 0.0                   | 0.0                | 47066.0   | 1765.0        | 5296731.0      | 283649.0                     |
 | 2016.0  | 0.0               | 0.0                   | 0.0                | 163213.0  | 4300.0        | 1514571.0      | 311824.0                     |
 
-## Insights from the Pivot Table
+### Insights from the Pivot Table
 
 This pivot table aggregates the total number of customers affected by power outages each year for various cause categories. Below are the key insights:
 
-### 1. Dominant Cause Categories
+#### 1. Dominant Cause Categories
 The largest values in each row reveal which cause category impacted the most customers in a given year. For instance:
 - **Severe Weather** consistently stands out as the primary cause, with the highest impact in most years. This highlights its significant role in driving outages.
 
-### 2. Trends Over Time
+#### 2. Trends Over Time
 The table shows how the number of customers affected changes year to year for each cause. For example:
 - **Severe Weather** affects customers consistently but has notable spikes in certain years, such as 2008 and 2012, which likely correspond to major events like hurricanes or severe storms.
 - Less frequent causes, like **Fuel Supply Emergency** and **Intentional Attack**, rarely appear, indicating they are uncommon contributors to outages.
 
-### 3. Emerging Patterns
+#### 3. Emerging Patterns
 Some categories, such as **System Operability Disruption**, show significant variation across years. This could suggest isolated, major incidents that caused large impacts during specific periods. In contrast, categories like **Public Appeal** and **Islanding** consistently have minimal impact, affecting very few customers overall.
 
-### 4. High-Impact Years
+#### 4. High-Impact Years
 Certain years, such as 2008 and 2012, stand out for their overall high customer impact across all cause categories. These years may align with severe events like hurricanes, ice storms, or other extreme weather conditions that significantly disrupted power.
 
-### 5. Gaps or Missing Data
+#### 5. Gaps or Missing Data
 Many rows show `0` values for certain cause categories, which could indicate missing data or simply that those causes were not factors in those years. Understanding whether these are true gaps or the absence of events is crucial for accurate interpretation.
 
 
@@ -212,7 +213,7 @@ Assess whether the missingness of `DEMAND.LOSS` is dependent on `MONTH`.
 - **Conclusion:** The missingness of `DEMAND.LOSS` is **Missing Completely at Random (MCAR)** with respect to `MONTH`.
 
 <iframe
-  src="marDEMAND.LOSSagainstMONTH.html"
+  src="marDEMAND.LOSS.MWagainstMONTH.html"
   width="800"
   height="600"
   frameborder="0"
@@ -242,7 +243,7 @@ We performed a permutation test to determine if the mean number of customers aff
   frameborder="0"
 ></iframe>
 
-## Step 5: Framing a Prediction Problem
+## Framing a Prediction Problem
 
 ### Prediction Problem
 The prediction problem is to determine the **cause category** of a major power outage based on historical data. This is a **multiclass classification problem**, as there are multiple possible causes (e.g., Weather, Equipment Failure, Human Error, etc.).
@@ -280,7 +281,7 @@ At the time of prediction, we assume the following information is known:
 **Note:**  
 Features like **OUTAGE.RESTORATION** or exact durations will not be used for prediction, as these are not known at the time the outage occurs.
 
-## Step 6: Baseline Model
+## Baseline Model
 
 #### **Model Description**:
 
@@ -312,7 +313,7 @@ While the baseline model performs reasonably well, it does not yet capture all o
 
 
 --
-## Step 7: Baseline Model
+## Final Model
 
 #### **Model Description**:
 
@@ -348,7 +349,7 @@ The **F1-Score (weighted)** of 0.7020 indicates a strong balance between precisi
 The final model shows a marked improvement in performance over the baseline. The **F1-Score (weighted)** indicates that the model effectively balances precision and recall, addressing the shortcomings of the baseline model. The increase in performance is attributed to thoughtful feature engineering (e.g., `CUSTOMERS.PERCENT.AFFECTED`, `AFFECTED.CUSTOMERS.TYPES.COUNT`), data transformations (One-Hot Encoding, Standardization, and Ordinal Encoding), and hyperparameter tuning through **GridSearchCV**, which helped the model generalize better.
 
 ---
-## Step 8: Fairness Analysis of the Final Model
+## Fairness Analysis of the Final Model
 
 #### **Group Selection**:
 - **Group X**: Areas with **Total Customers Below the Median** (Low Total Customers).
