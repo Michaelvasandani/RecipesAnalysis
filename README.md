@@ -65,6 +65,8 @@ The first step is to clean the dataset to ensure it is organized and free of inc
 
 ## Exploratory Data Analysis
 
+### Univariate Analysis
+
 **Uneven Distribution:**
 
 The dataset shows that some years, such as 2010, have a noticeably higher number of records compared to others. This could point to either an unusual event occurring in those years or an increase in reporting activity. On the other hand, earlier years like 2000-2004 and later years such as 2016 have fewer records, which might be due to incomplete data collection during those periods.
@@ -77,6 +79,7 @@ The uneven distribution of records across years could introduce bias into the an
 
 The dataset covers the years 2000 to 2016, but the record counts are unevenly distributed. This imbalance may impact the model’s ability to generalize, especially if underrepresented years play a critical role in understanding long-term trends. For example, when using temporal features like `YEAR`, it’s essential to consider the potential impact of this imbalance and take steps to address it, such as applying weighting or resampling methods. Ensuring the dataset aligns with the modeling goals is crucial to prevent overfitting or misrepresenting trends driven by dominant years.
 
+### Bivariate Analysis
 
 ---
 
