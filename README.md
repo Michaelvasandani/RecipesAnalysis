@@ -38,7 +38,26 @@ In this project, we analyze power outage data across the United States to identi
 ## Cleaning and EDA
 
 <iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe>
+Cleaning
+Select Relevant Columns
+I started by dropping columns that are not relevant to this analysis and keeping only the features essential for understanding power outages. The columns I retained include:
+YEAR, MONTH, U.S._STATE, NERC.REGION, CLIMATE.CATEGORY, CAUSE.CATEGORY, OUTAGE.DURATION, DEMAND.LOSS.MW, CUSTOMERS.AFFECTED, TOTAL.CUSTOMERS.
+These columns provide information about when and where outages occurred, their causes, durations, and the number of customers affected.
 
+Combine Date and Time Columns
+I combined the OUTAGE.START.DATE and OUTAGE.START.TIME columns into a single datetime column called OUTAGE.START. Similarly, I combined OUTAGE.RESTORATION.DATE and OUTAGE.RESTORATION.TIME into a column called OUTAGE.RESTORATION. This formatting ensures that temporal information is easy to analyze while preserving important details. Afterward, I dropped the original DATE and TIME columns to avoid redundancy.
+
+Handle Missing or Incorrect Values
+I checked key columns such as OUTAGE.DURATION, CUSTOMERS.AFFECTED, and DEMAND.LOSS.MW for invalid values. For example, rows where these columns contained 0 were flagged as potentially missing data, since a valid outage cannot have zero duration or customers affected. These values were replaced with np.nan to ensure they were handled properly during analysis.
+
+Normalize Population and Urban Data
+I combined the columns POPULATION_URBAN, POPULATION_DENSITY_URBAN, and AREA_PERCENT_URBAN into a single column named URBAN. This column accounts for the percent of a state’s population in urban areas, population density, and the proportion of the state classified as urban. This allows for better comparisons between states with different urbanization levels.
+
+Validate Data Integrity
+Finally, I checked all columns to ensure they had the correct data types. For instance:
+
+Numerical columns such as OUTAGE.DURATION, CUSTOMERS.AFFECTED, and DEMAND.LOSS.MW were converted to float.
+Categorical columns, such as CAUSE.CATEGORY, were converted to categorical data types to optimize memory usage and processing speed.
 ---
 
 ## Assessment of Missingness
