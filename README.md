@@ -1,8 +1,3 @@
-# My Project Title
-
-by Suraj Rampure (rampure@ucsd.edu)
-
-***Note***: If you choose a repo name and title as uninspired as the ones here, I will be quite sad.
 
 ---
 
@@ -34,13 +29,6 @@ In this project, we analyze power outage data across the United States to identi
 | `COM.CUSTOMERS`            | Number of commercial customers affected                                                       |
 | `IND.CUSTOMERS`            | Number of industrial customers affected                                                       |
 | `TOTAL.CUSTOMERS`          | Total number of customers affected                                                            |
-
-## Cleaning and EDA
-
-<iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe>
-## Data Cleaning and Exploratory Data Analysis
-
-The first step is to clean the dataset to ensure it is organized and free of inconsistencies, preparing it for analysis.
 
 ## Cleaning
 
