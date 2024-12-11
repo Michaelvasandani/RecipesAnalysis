@@ -276,3 +276,32 @@ The goal of this project is to predict the **cause of a major power outage**. Th
 
 
 
+## Final Model
+
+For our final model, we used a **Random Forest Classifier** and incorporated the following features:  
+**U.S._STATE, NERC.REGION, YEAR, TOTAL.CUSTOMERS, CUSTOMERS.AFFECTED**. These features were chosen because they capture geographic, temporal, and impact-related information that directly influence the cause of outages. Using this model, we were able to achieve an F1-Score of **0.702** on the test set, indicating a solid performance for our multiclass classification task.
+
+We included the following transformations in our pipeline:
+- **U.S._STATE** and **NERC.REGION** were one-hot encoded to represent categorical data effectively.
+- **YEAR** was ordinally encoded to capture its sequential nature.
+- **TOTAL.CUSTOMERS** and **CUSTOMERS.AFFECTED** were standardized using a scaler to ensure numerical features were on the same scale.
+
+### Hyperparameter Tuning
+To optimize our model, we used GridSearchCV to test a range of hyperparameters and find the best combination for performance. The optimal parameters were:
+- `criterion`: `gini`
+- `max_depth`: `25`
+- `min_samples_split`: `5`
+- `n_estimators`: `100`
+- `bootstrap`: `True`
+
+These parameters allowed the Random Forest Classifier to balance complexity and generalization, leading to improved results.
+
+### Model Performance
+The best cross-validated F1-Score achieved was **0.6827**, and the test set evaluation gave the following metrics:
+- **Accuracy:** **0.739**
+- **Weighted F1-Score:** **0.702**
+
+Additionally, a confusion matrix revealed that the model performed particularly well for certain categories, such as **Intentional Attack** and **Severe Weather**, while struggling with less frequent causes like **Fuel Supply Emergency**. This reflects the challenges of working with imbalanced datasets.
+
+### Conclusion
+The Random Forest Classifier provided a robust framework for predicting outage causes. The use of GridSearchCV ensured that the model was well-optimized, and the inclusion of weighted F1-Score as a metric helped address class imbalances. While the results are promising, future improvements could involve additional feature engineering or trying ensemble methods to further enhance performance.
