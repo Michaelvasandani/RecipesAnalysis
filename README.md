@@ -94,7 +94,7 @@ This analysis highlights how the severity of power outages changes over time. By
 
 ---
 
-## Assessment of Missingness
+## Grouping and Aggregates 
 
 ## Cause Category by Year
 
@@ -118,12 +118,8 @@ This analysis highlights how the severity of power outages changes over time. By
 | 2015.0  | 0.0               | 0.0                   | 0.0                | 47066.0   | 1765.0        | 5296731.0      | 283649.0                     |
 | 2016.0  | 0.0               | 0.0                   | 0.0                | 163213.0  | 4300.0        | 1514571.0      | 311824.0                     |
 
+## Assessment of Missingness
 
-
-Here's what a Markdown table looks like. Note that the code for this table was generated _automatically_ from a DataFrame, using
-
-```py
-print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
 ```
 
 | Quarter     |   Count |
