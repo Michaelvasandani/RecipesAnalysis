@@ -65,6 +65,12 @@ In this project, we analyze power outage data across the United States to identi
 ## Exploratory Data Analysis
 
 ### Univariate Analysis
+<iframe
+  src="bivariate1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 **Uneven Distribution:**
 
@@ -78,14 +84,14 @@ The uneven distribution of records across years could introduce bias into the an
 
 The dataset covers the years 2000 to 2016, but the record counts are unevenly distributed. This imbalance may impact the model’s ability to generalize, especially if underrepresented years play a critical role in understanding long-term trends. For example, when using temporal features like `YEAR`, it’s essential to consider the potential impact of this imbalance and take steps to address it, such as applying weighting or resampling methods. Ensuring the dataset aligns with the modeling goals is crucial to prevent overfitting or misrepresenting trends driven by dominant years.
 
+## Bivariate Analysis
+
 <iframe
-  src="bivariate1.html"
+  src="bivariate2.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-
-## Bivariate Analysis
 
 ### Analysis of Box Plot: YEAR vs. TOTAL CUSTOMERS
 The box plot illustrates how the total number of customers affected by power outages varied across different years. Each box represents the range of values for a specific year, with the length of the box (the interquartile range, or IQR) capturing the middle 50% of the data. The whiskers extend to show the minimum and maximum values, giving a clear picture of how spread out the data is within a year.
@@ -97,13 +103,6 @@ Some years, like 2004, 2012, and 2014, show larger ranges of variability, with w
 Certain years also stand out for their high-impact outliers. For instance, 2002, 2014, and 2008 had significant events that affected a much larger number of customers compared to the typical outages of those years. These spikes likely align with major weather events or infrastructure issues that need further investigation.
 
 This analysis highlights how the severity of power outages changes over time. By focusing on years with greater variability or extreme events, we can dig deeper into the factors—like weather patterns or infrastructure failures—that contribute to significant disruptions.
-
-<iframe
-  src="bivariate2.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
 ---
 
 ## Grouping and Aggregates 
@@ -199,6 +198,12 @@ The mean number of customers affected in 2011 is greater than the mean for other
 ### Test
 We performed a permutation test to determine if the mean number of customers affected in 2011 is significantly greater than the mean for other years.
 
+<iframe
+  src="hypothesispermutation.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Step 5: Framing a Prediction Problem
 
