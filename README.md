@@ -170,8 +170,6 @@ This table is a valuable tool for identifying patterns, understanding causes, an
 
 ## Hypothesis Testing 
 
-## Hypothesis Testing
-
 ### Null Hypothesis (H₀)
 The mean number of customers affected in 2011 is less than or equal to the mean for other years.
 
