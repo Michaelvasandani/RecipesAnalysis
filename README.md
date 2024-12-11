@@ -1,4 +1,4 @@
-**Analysis of Power Outages in the United States** 
+## Analysis of Power Outages in the United States 
 
 DSC 80 Project 
 By Michael Vasandani & Omar Ali
