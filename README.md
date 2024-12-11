@@ -62,6 +62,17 @@ The first step is to clean the dataset to ensure it is organized and free of inc
    Finally, I checked all columns to ensure they had the correct data types. For instance:
    - Numerical columns such as `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, and `DEMAND.LOSS.MW` were converted to `float`.
    - Categorical columns, such as `CAUSE.CATEGORY`, were converted to categorical data types to optimize memory usage and processing speed.
+  
+## Outage Data
+
+| OBS  | OUTAGE.START.DATE | OUTAGE.START.TIME | OUTAGE.START         | OUTAGE.RESTORATION.DATE | OUTAGE.RESTORATION.TIME | OUTAGE.RESTORATION       |
+|------|-------------------|-------------------|-----------------------|-------------------------|-------------------------|--------------------------|
+| 1.0  | 2011-07-01        | 17:00:00         | 2011-07-01 17:00:00  | 2011-07-03              | 20:00:00               | 2011-07-03 20:00:00     |
+| 2.0  | 2014-05-11        | 18:38:00         | 2014-05-11 18:38:00  | 2014-05-11              | 18:39:00               | 2014-05-11 18:39:00     |
+| 3.0  | 2010-10-26        | 20:00:00         | 2010-10-26 20:00:00  | 2010-10-28              | 22:00:00               | 2010-10-28 22:00:00     |
+| 4.0  | 2012-06-19        | 04:30:00         | 2012-06-19 04:30:00  | 2012-06-20              | 23:00:00               | 2012-06-20 23:00:00     |
+| 5.0  | 2015-07-18        | 02:00:00         | 2015-07-18 02:00:00  | 2015-07-19              | 07:00:00               | 2015-07-19 07:00:00     |
+
 
 ## Exploratory Data Analysis
 
