@@ -305,3 +305,22 @@ Additionally, a confusion matrix revealed that the model performed particularly 
 
 ### Conclusion
 The Random Forest Classifier provided a robust framework for predicting outage causes. The use of GridSearchCV ensured that the model was well-optimized, and the inclusion of weighted F1-Score as a metric helped address class imbalances. While the results are promising, future improvements could involve additional feature engineering or trying ensemble methods to further enhance performance.
+
+## Fairness Analysis
+
+For the fairness analysis, we divided the data into two groups based on the total number of customers affected:  
+- **Group X:** Areas with total customers affected below or equal to the median.  
+- **Group Y:** Areas with total customers affected above the median.
+
+This grouping was chosen because the number of customers impacted can influence the prioritization of resources and responses. By ensuring that the model performs well across both groups, we can better assess its fairness in predicting outage causes for both smaller-scale and larger-scale events.
+
+The primary evaluation metric used for this analysis is the **F1-Score**, as it provides a balanced measure by combining precision and recall. This is particularly important due to the potential imbalance between groups. We calculated the weighted F1-Scores for both groups and used a permutation test to assess whether any observed differences in F1-Scores were statistically significant.
+
+### Hypotheses:
+- **Null Hypothesis (H₀):** The model is fair, meaning the F1-Scores for Group X and Group Y are similar, with any differences due to random chance.
+- **Alternative Hypothesis (H₁):** The model is not fair, and the F1-Scores for Group X and Group Y differ significantly.
+
+Using 10,000 trials in the permutation test, we determined a p-value of **0.0** at a significance level of **0.05**. This indicates that the differences in F1-Scores are statistically significant. As a result, we reject the null hypothesis and conclude that the model exhibits different levels of performance for areas with fewer customers affected versus those with more customers affected.
+
+This analysis highlights the need to address performance disparities in the model to ensure equitable predictions across varying scales of customer impact.
+
