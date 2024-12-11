@@ -81,6 +81,23 @@ The dataset covers the years 2000 to 2016, but the record counts are unevenly di
 
 ### Bivariate Analysis
 
+To explore the relationships between key variables in the dataset, I conducted several bivariate analyses. Below are two significant visualizations and their insights:
+
+### Box Plot: YEAR vs TOTAL.CUSTOMERS
+
+```python
+# Box Plot: YEAR vs TOTAL.CUSTOMERS
+box_plot = px.box(
+    data,
+    x="YEAR",
+    y="TOTAL.CUSTOMERS",
+    title="Box Plot: Yearly Distribution of Customers Affected by Outages",
+    labels={"YEAR": "Year", "CUSTOMERS.AFFECTED": "customers affected"},
+    color="YEAR",  # Differentiate by year
+    points="all"  # Show all data points
+)
+box_plot.show()
+
 ---
 
 ## Assessment of Missingness
