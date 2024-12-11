@@ -42,7 +42,7 @@ In this project, we analyze power outage data across the United States to identi
 
 The first step is to clean the dataset to ensure it is organized and free of inconsistencies, preparing it for analysis.
 
-### Cleaning
+## Cleaning
 
 1. **Select Relevant Columns**  
    I started by dropping columns that are not relevant to this analysis and keeping only the features essential for understanding power outages. The columns I retained include:  
@@ -63,17 +63,17 @@ The first step is to clean the dataset to ensure it is organized and free of inc
    - Numerical columns such as `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, and `DEMAND.LOSS.MW` were converted to `float`.
    - Categorical columns, such as `CAUSE.CATEGORY`, were converted to categorical data types to optimize memory usage and processing speed.
 
-   ## Exploratory Data Analysis
+## Exploratory Data Analysis
 
-### Uneven Distribution:
+**Uneven Distribution:**
 
 The dataset shows that some years, such as 2010, have a noticeably higher number of records compared to others. This could point to either an unusual event occurring in those years or an increase in reporting activity. On the other hand, earlier years like 2000-2004 and later years such as 2016 have fewer records, which might be due to incomplete data collection during those periods.
 
-### Potential Data Bias:
+**Potential Data Bias:**
 
 The uneven distribution of records across years could introduce bias into the analysis or modeling. If the events in heavily represented years are not reflective of broader patterns, the model may overfit to those dominant years. This could affect how well the model performs on less-represented periods or in real-world applications.
 
-### Dataset Coverage:
+**Dataset Coverage:**
 
 The dataset covers the years 2000 to 2016, but the record counts are unevenly distributed. This imbalance may impact the model’s ability to generalize, especially if underrepresented years play a critical role in understanding long-term trends. For example, when using temporal features like `YEAR`, it’s essential to consider the potential impact of this imbalance and take steps to address it, such as applying weighting or resampling methods. Ensuring the dataset aligns with the modeling goals is crucial to prevent overfitting or misrepresenting trends driven by dominant years.
 
