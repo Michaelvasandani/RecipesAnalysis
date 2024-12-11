@@ -180,4 +180,42 @@ The mean number of customers affected in 2011 is greater than the mean for other
 We performed a permutation test to determine if the mean number of customers affected in 2011 is significantly greater than the mean for other years.
 
 
+## Step 5: Framing a Prediction Problem
+
+### Prediction Problem
+The prediction problem is to determine the **cause category** of a major power outage based on historical data. This is a **multiclass classification problem**, as there are multiple possible causes (e.g., Weather, Equipment Failure, Human Error, etc.).
+
+---
+
+### Response Variable
+The response variable is **CAUSE.CATEGORY**, which categorizes the primary reason for the outage.
+
+**Reason for Choice:**  
+This variable is critical for understanding and mitigating future power outages. Predicting the cause helps utility companies allocate resources, improve infrastructure, and plan for disruptions more effectively.
+
+---
+
+### Evaluation Metric
+**Primary Metric:** F1-Score
+
+**Reason for Choice:**
+- The dataset likely has **imbalanced classes** (e.g., weather-related outages might dominate). Accuracy would not capture performance well in this case, as a model could simply predict the majority class and still achieve high accuracy.
+- **F1-Score** balances **precision** and **recall**, ensuring the model performs well across all classes, including minority ones.
+- A **weighted F1-Score** will be used to account for the class imbalances while still considering the overall performance.
+
+---
+
+### Type of Prediction and Justification of Features
+
+**Type of Prediction:** Multiclass Classification  
+
+At the time of prediction, we assume the following information is known:
+- **Time-Related Features** (e.g., `YEAR`, `MONTH`, `SEASON`)—available at the start of the outage.
+- **Geographic Information** (`U.S._STATE`, `NERC.REGION`)—inherent to the location of the outage.
+- **Impact Features** (e.g., `TOTAL.CUSTOMERS`, `CUSTOMERS.AFFECTED`)—these are known during or immediately after the outage.
+- **Anomaly Levels and Climate Categories**—typically associated with outage reports and can be available from weather systems.
+
+**Note:**  
+Features like **OUTAGE.RESTORATION** or exact durations will not be used for prediction, as these are not known at the time the outage occurs.
+
 
