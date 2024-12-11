@@ -63,7 +63,7 @@ The first step is to clean the dataset to ensure it is organized and free of inc
    - Numerical columns such as `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, and `DEMAND.LOSS.MW` were converted to `float`.
    - Categorical columns, such as `CAUSE.CATEGORY`, were converted to categorical data types to optimize memory usage and processing speed.
 
-   ### Exploratory Data Analysis
+   ## Exploratory Data Analysis
 
 ### Uneven Distribution:
 
