@@ -306,9 +306,9 @@ For the baseline model, we used **Logistic Regression** to predict the cause of 
 
 | **Metric**                     | **Value**                             |
 |---------------------------------|---------------------------------------|
-| **F1-Score (weighted)**         | 0.5453                                |
+| **F1-Score (weighted)**         | 0.58                                |
 
-The **F1-Score (weighted)** of 0.5453 indicates a moderate balance between precision and recall, particularly for the minority classes. This suggests that while the baseline model performs decently, there is room for improvement in handling class imbalances.
+The **F1-Score (weighted)** of 0.58 indicates a moderate balance between precision and recall, particularly for the minority classes. This suggests that while the baseline model performs decently, there is room for improvement in handling class imbalances.
 
 #### **Evaluation**:
 While the baseline model performs reasonably well, it does not yet capture all of the underlying patterns in the data. The relatively low F1-score suggests that improvements can be made, especially in terms of precision and recall for minority classes. By improving feature engineering and tuning model hyperparameters, we can expect the performance to improve in subsequent models.
@@ -343,9 +343,9 @@ For the final model, we used a **Random Forest Classifier** to predict the cause
 
 | **Metric**                     | **Value**                             |
 |---------------------------------|---------------------------------------|
-| **F1-Score (weighted)**         | 0.7020                                |
+| **F1-Score (weighted)**         | 0.78                               |
 
-The **F1-Score (weighted)** of 0.7020 indicates a strong balance between precision and recall, especially for the minority classes. The final model demonstrates an improvement in capturing the patterns in the data compared to the baseline model, with a more robust handling of class imbalances.
+The **F1-Score (weighted)** of 0.78 indicates a strong balance between precision and recall, especially for the minority classes. The final model demonstrates an improvement in capturing the patterns in the data compared to the baseline model, with a more robust handling of class imbalances.
 
 #### **Evaluation**:
 The final model shows a marked improvement in performance over the baseline. The **F1-Score (weighted)** indicates that the model effectively balances precision and recall, addressing the shortcomings of the baseline model. The increase in performance is attributed to thoughtful feature engineering (e.g., `CUSTOMERS.PERCENT.AFFECTED`, `AFFECTED.CUSTOMERS.TYPES.COUNT`), data transformations (One-Hot Encoding, Standardization, and Ordinal Encoding), and hyperparameter tuning through **GridSearchCV**, which helped the model generalize better.
