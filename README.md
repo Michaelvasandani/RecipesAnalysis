@@ -374,10 +374,10 @@ The final model shows a marked improvement in performance over the baseline. The
 
 #### **Results**:
 - **Group-wise F1-Scores**:
-  - **Low Total Customers (≤ median)**: 0.6928
-  - **High Total Customers (> median)**: 0.7857
+  - **Low Total Customers (≤ median)**: 0.07320
+  - **High Total Customers (> median)**: 0.08831
 
-- **Null Hypothesis**: We **fail to reject** the null hypothesis since the p-value (0.0740) is greater than the significance level of 0.01.
+- **Null Hypothesis**: We **fail to reject** the null hypothesis since the p-value (0.00105) is greater than the significance level of 0.01.
 
 #### **Conclusion**:
 - The fairness analysis suggests that there is **no significant disparity** in the model’s F1-Score between areas with low total customers and areas with high total customers, as the p-value is above the threshold of 0.01.
