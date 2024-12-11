@@ -234,12 +234,14 @@ The mean number of customers affected in 2011 is greater than the mean for other
 ### Test
 We performed a permutation test to determine if the mean number of customers affected in 2011 is significantly greater than the mean for other years.
 
+We performed a test with 
 <iframe
   src="hypothesispermutation.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
 
 ## Framing a Prediction Problem
 
