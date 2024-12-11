@@ -64,7 +64,7 @@ In this project, we analyze power outage data across the United States to identi
 
 ### Univariate Analysis
 <iframe
-  src="bivariate1.html"
+  src="univariate1.html"
   width="800"
   height="600"
   frameborder="0"
@@ -85,7 +85,7 @@ The dataset covers the years 2000 to 2016, but the record counts are unevenly di
 ## Bivariate Analysis
 
 <iframe
-  src="bivariate2.html"
+  src="bivariate1.html"
   width="800"
   height="600"
   frameborder="0"
