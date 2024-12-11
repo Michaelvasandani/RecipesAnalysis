@@ -79,24 +79,18 @@ The uneven distribution of records across years could introduce bias into the an
 
 The dataset covers the years 2000 to 2016, but the record counts are unevenly distributed. This imbalance may impact the model’s ability to generalize, especially if underrepresented years play a critical role in understanding long-term trends. For example, when using temporal features like `YEAR`, it’s essential to consider the potential impact of this imbalance and take steps to address it, such as applying weighting or resampling methods. Ensuring the dataset aligns with the modeling goals is crucial to prevent overfitting or misrepresenting trends driven by dominant years.
 
-### Bivariate Analysis
+## Bivariate Analysis
 
-To explore the relationships between key variables in the dataset, I conducted several bivariate analyses. Below are two significant visualizations and their insights:
+### Analysis of Box Plot: YEAR vs. TOTAL CUSTOMERS
+The box plot illustrates how the total number of customers affected by power outages varied across different years. Each box represents the range of values for a specific year, with the length of the box (the interquartile range, or IQR) capturing the middle 50% of the data. The whiskers extend to show the minimum and maximum values, giving a clear picture of how spread out the data is within a year.
 
-### Box Plot: YEAR vs TOTAL.CUSTOMERS
+The line inside each box represents the median, which shows the typical number of customers affected in that year. Outliers, represented as dots outside the whiskers, point to extreme events where significantly more customers were affected than usual. These outliers often reflect major disruptions or unusual circumstances in those years.
 
-```python
-# Box Plot: YEAR vs TOTAL.CUSTOMERS
-box_plot = px.box(
-    data,
-    x="YEAR",
-    y="TOTAL.CUSTOMERS",
-    title="Box Plot: Yearly Distribution of Customers Affected by Outages",
-    labels={"YEAR": "Year", "CUSTOMERS.AFFECTED": "customers affected"},
-    color="YEAR",  # Differentiate by year
-    points="all"  # Show all data points
-)
-box_plot.show()
+Some years, like 2004, 2012, and 2014, show larger ranges of variability, with wider IQRs. This suggests those years had both small, localized outages and larger, widespread ones. On the other hand, years like 2000, 2010, and 2016 have tighter distributions, indicating more consistent levels of customer impact across events.
+
+Certain years also stand out for their high-impact outliers. For instance, 2002, 2014, and 2008 had significant events that affected a much larger number of customers compared to the typical outages of those years. These spikes likely align with major weather events or infrastructure issues that need further investigation.
+
+This analysis highlights how the severity of power outages changes over time. By focusing on years with greater variability or extreme events, we can dig deeper into the factors—like weather patterns or infrastructure failures—that contribute to significant disruptions.
 
 ---
 
