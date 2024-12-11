@@ -218,4 +218,61 @@ At the time of prediction, we assume the following information is known:
 **Note:**  
 Features like **OUTAGE.RESTORATION** or exact durations will not be used for prediction, as these are not known at the time the outage occurs.
 
+## Step 6: Baseline Model
+
+### Logistic Regression
+
+---
+
+### Model Description
+
+#### Prediction Problem
+The goal of this project is to predict the **cause of a major power outage**. This is a **multiclass classification problem**, meaning the target variable includes several possible causes, such as **Weather, Equipment Failure,** and **Human Error**. Understanding these causes can help utility companies take preventive actions and improve their responses.
+
+---
+
+#### Response Variable
+- **Response Variable:** `CAUSE.CATEGORY` (Multiclass Target)
+- **Why It Was Chosen:** Identifying the cause of a power outage is essential for improving response times, optimizing resource allocation, and preventing similar outages in the future.
+
+---
+
+#### Features Used
+1. **U.S._STATE** (Nominal, One-Hot Encoded)
+   - **Why It Was Chosen:** States have unique weather patterns, infrastructure conditions, and risks, all of which can influence the cause of an outage.
+   - **Transformation:** One-hot encoding was applied to convert the categorical state information into binary columns that the model can understand.
+
+2. **TOTAL.CUSTOMERS** (Quantitative, Standardized)
+   - **Why It Was Chosen:** The number of customers affected may provide insight into the scale of the outage and its likely cause. For example, larger outages might be tied to severe weather, while smaller ones could result from localized equipment issues.
+   - **Transformation:** Standardized using `StandardScaler` to ensure that this feature is scaled consistently, preventing it from overpowering other variables during training.
+
+---
+
+### Pipeline Design
+
+1. **Preprocessing:**
+   - **One-Hot Encoding:** Converts `U.S._STATE` into binary columns for better representation in the model.
+   - **Standardization:** Scales `TOTAL.CUSTOMERS` to have a mean of 0 and a standard deviation of 1 for uniformity.
+
+2. **Model:**
+   - **Logistic Regression (Multinomial):** This model was chosen to predict the cause of outages. It's straightforward, interpretable, and a solid choice for establishing a baseline.
+   - **Why Logistic Regression?** It’s easy to implement, provides clear insights, and works well as an initial model before exploring more complex approaches.
+
+---
+
+### Performance Metrics
+- **Accuracy:** Measures the percentage of correct predictions overall.
+- **F1-Score:** A more balanced metric that considers both precision and recall, making it particularly useful for datasets with class imbalances (e.g., Weather-related outages may dominate over other causes).
+
+---
+
+### Summary
+- **Problem:** Predicting the cause of a major power outage using multiclass classification.
+- **Response Variable:** `CAUSE.CATEGORY`.
+- **Features:** The features used include `U.S._STATE` (converted to binary columns) and `TOTAL.CUSTOMERS` (scaled for consistency).
+- **Preprocessing Steps:** Applied one-hot encoding and standardization to prepare the data for modeling.
+- **Model:** Multinomial Logistic Regression was used as the baseline model.
+- **Evaluation Metrics:** Both Accuracy and Weighted F1-Score were selected to assess the model's performance, ensuring fair evaluation even with imbalanced classes.
+
+
 
