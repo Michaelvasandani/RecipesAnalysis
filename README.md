@@ -118,21 +118,39 @@ This analysis highlights how the severity of power outages changes over time. By
 | 2015.0  | 0.0               | 0.0                   | 0.0                | 47066.0   | 1765.0        | 5296731.0      | 283649.0                     |
 | 2016.0  | 0.0               | 0.0                   | 0.0                | 163213.0  | 4300.0        | 1514571.0      | 311824.0                     |
 
+## Insights from the Pivot Table
+
+This pivot table aggregates the total number of customers affected by power outages each year for various cause categories. Below are the key insights:
+
+### 1. Dominant Cause Categories
+The largest values in each row reveal which cause category impacted the most customers in a given year. For instance:
+- **Severe Weather** consistently stands out as the primary cause, with the highest impact in most years. This highlights its significant role in driving outages.
+
+### 2. Trends Over Time
+The table shows how the number of customers affected changes year to year for each cause. For example:
+- **Severe Weather** affects customers consistently but has notable spikes in certain years, such as 2008 and 2012, which likely correspond to major events like hurricanes or severe storms.
+- Less frequent causes, like **Fuel Supply Emergency** and **Intentional Attack**, rarely appear, indicating they are uncommon contributors to outages.
+
+### 3. Emerging Patterns
+Some categories, such as **System Operability Disruption**, show significant variation across years. This could suggest isolated, major incidents that caused large impacts during specific periods. In contrast, categories like **Public Appeal** and **Islanding** consistently have minimal impact, affecting very few customers overall.
+
+### 4. High-Impact Years
+Certain years, such as 2008 and 2012, stand out for their overall high customer impact across all cause categories. These years may align with severe events like hurricanes, ice storms, or other extreme weather conditions that significantly disrupted power.
+
+### 5. Gaps or Missing Data
+Many rows show `0` values for certain cause categories, which could indicate missing data or simply that those causes were not factors in those years. Understanding whether these are true gaps or the absence of events is crucial for accurate interpretation.
+
+---
+
+### Applications of These Insights
+
+- **Resource Allocation:** Since **Severe Weather** is the most dominant cause, resources should prioritize weatherproofing infrastructure and improving resilience to extreme weather conditions.
+- **Policy Planning:** Spikes in specific causes during certain years can guide strategic planning for future preparedness and targeted investments.
+- **Further Analysis:** Trends in the table could be compared with external factors like climate anomalies, policy changes, or regional infrastructure improvements to uncover additional insights.
+
+This table is a valuable tool for identifying patterns, understanding causes, and prioritizing focus areas to mitigate the impacts of power outages effectively.
+
+
 ## Assessment of Missingness
 
-```
 
-| Quarter     |   Count |
-|:------------|--------:|
-| Fall 2020   |       3 |
-| Winter 2021 |       2 |
-| Spring 2021 |       6 |
-| Summer 2021 |       4 |
-| Fall 2021   |      55 |
-
----
-
-## Hypothesis Testing
-
-
----
