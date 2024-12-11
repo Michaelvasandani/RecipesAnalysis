@@ -7,34 +7,35 @@ By Michael Vasandani & Omar Ali
 
 ## Introduction
 
-Power outages are a growing concern in the United States, impacting millions of people each year and revealing significant weaknesses in the nation’s infrastructure. These events can disrupt daily routines, create safety risks, and have far-reaching economic consequences. With the increasing frequency of extreme weather and the challenges posed by aging infrastructure, it’s essential to examine the factors driving these outages and the patterns they reveal over time. 
+Power outages are a growing concern in the United States, impacting millions of people each year and revealing significant weaknesses in the nation’s infrastructure. These events can disrupt daily routines, create safety risks, and have far-reaching economic consequences. With the increasing frequency of extreme weather and the challenges posed by aging infrastructure, it’s essential to examine the factors driving these outages and the patterns they reveal over time.
 
-In this project, we analyze power outage data across the United States to identify trends in the frequency, causes, and impact of these events. A key focus of our work is determining whether 2022 experienced an unusually high number of outages compared to previous years. By using statistical methods and hypothesis testing, we aim to uncover meaningful insights that can help predict future outages and guide decision-making for energy providers, policymakers, and communities.
+In this project, we aim to answer the central question: Where and when do major power outages tend to occur? By analyzing power outage data across the United States, we identify trends in the frequency, causes, and impact of these events. A key focus of our analysis is determining whether specific years or regions experience a higher concentration of outages. By using statistical methods and hypothesis testing, we aim to uncover meaningful insights that can help predict future outages and guide decision-making for energy providers, policymakers, and communities.
 
 ---
-| Column                     | Description                                                                                   |
-|----------------------------|-----------------------------------------------------------------------------------------------|
-| `YEAR`                     | Year an outage occurred                                                                       |
-| `MONTH`                    | Month an outage occurred                                                                      |
-| `U.S._STATE`               | State the outage occurred in                                                                  |
-| `NERC.REGION`              | North American Electric Reliability Corporation (NERC) regions involved in the outage event   |
-| `CLIMATE.REGION`           | U.S. Climate regions as specified by National Centers for Environmental Information (9 Regions)|
-| `ANOMALY.LEVEL`            | Oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season         |
-| `OUTAGE.START.DATE`        | Day of the year when the outage event started                                                 |
-| `OUTAGE.START.TIME`        | Time of the day when the outage event started                                                 |
-| `OUTAGE.RESTORATION.DATE`  | Day of the year when power was restored to all customers                                       |
-| `OUTAGE.RESTORATION.TIME`  | Time of the day when power was restored to all customers                                       |
-| `CAUSE.CATEGORY`           | Categories of all the events causing the major power outages                                  |
-| `CAUSE.CATEGORY.DETAIL`    | Detailed information about the cause category of the outage                                   |
-| `OUTAGE.DURATION`          | Duration of outage events (in minutes)                                                        |
-| `DEMAND.LOSS.MW`           | Amount of peak demand lost during an outage event (in Megawatts)                              |
-| `CUSTOMERS.AFFECTED`       | Total number of customers affected during the outage                                           |
-| `RES.CUSTOMERS`            | Number of residential customers affected                                                      |
-| `COM.CUSTOMERS`            | Number of commercial customers affected                                                       |
-| `IND.CUSTOMERS`            | Number of industrial customers affected                                                       |
-| `TOTAL.CUSTOMERS`          | Total number of customers affected                                                            |
 
-## Cleaning
+- **`YEAR`**: Year an outage occurred  
+- **`MONTH`**: Month an outage occurred  
+- **`U.S._STATE`**: State the outage occurred in  
+- **`NERC.REGION`**: North American Electric Reliability Corporation (NERC) regions involved in the outage event  
+- **`CLIMATE.REGION`**: U.S. Climate regions as specified by National Centers for Environmental Information (9 Regions)  
+- **`ANOMALY.LEVEL`**: Oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season  
+- **`OUTAGE.START.DATE`**: Day of the year when the outage event started  
+- **`OUTAGE.START.TIME`**: Time of the day when the outage event started  
+- **`OUTAGE.RESTORATION.DATE`**: Day of the year when power was restored to all customers  
+- **`OUTAGE.RESTORATION.TIME`**: Time of the day when power was restored to all customers  
+- **`CAUSE.CATEGORY`**: Categories of all the events causing the major power outages  
+- **`CAUSE.CATEGORY.DETAIL`**: Detailed information about the cause category of the outage  
+- **`OUTAGE.DURATION`**: Duration of outage events (in minutes)  
+- **`DEMAND.LOSS.MW`**: Amount of peak demand lost during an outage event (in Megawatts)  
+- **`CUSTOMERS.AFFECTED`**: Total number of customers affected during the outage  
+- **`RES.CUSTOMERS`**: Number of residential customers affected  
+- **`COM.CUSTOMERS`**: Number of commercial customers affected  
+- **`IND.CUSTOMERS`**: Number of industrial customers affected  
+- **`TOTAL.CUSTOMERS`**: Total number of customers affected  
+
+--- 
+
+## Data Cleaning and Exploratory Data Analysis
 
 1. **Select Relevant Columns**  
    I started by dropping columns that are not relevant to this analysis and keeping only the features essential for understanding power outages. The columns I retained include: `YEAR`, `MONTH`, `U.S._STATE`, `NERC.REGION`, `CLIMATE.REGION`, `ANOMALY.LEVEL`, `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, `OUTAGE.RESTORATION.TIME`, `CAUSE.CATEGORY`, `CAUSE.CATEGORY.DETAIL`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`, `CUSTOMERS.AFFECTED`, `RES.CUSTOMERS`, `COM.CUSTOMERS`, `IND.CUSTOMERS`, `TOTAL.CUSTOMERS`. These columns provide information about when and where outages occurred, their causes, durations, and the number of customers affected.
