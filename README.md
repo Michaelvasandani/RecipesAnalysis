@@ -151,6 +151,8 @@ Certain years, such as 2008 and 2012, stand out for their overall high customer 
 ### 5. Gaps or Missing Data
 Many rows show `0` values for certain cause categories, which could indicate missing data or simply that those causes were not factors in those years. Understanding whether these are true gaps or the absence of events is crucial for accurate interpretation.
 
+
+
 ---
 
 ### Applications of These Insights
@@ -163,5 +165,21 @@ This table is a valuable tool for identifying patterns, understanding causes, an
 
 
 ## Assessment of Missingness
+
+
+
+## Hypothesis Testing 
+
+## Hypothesis Testing
+
+### Null Hypothesis (H₀)
+The mean number of customers affected in 2011 is less than or equal to the mean for other years.
+
+### Alternative Hypothesis (H₁)
+The mean number of customers affected in 2011 is greater than the mean for other years.
+
+### Test
+We performed a permutation test to determine if the mean number of customers affected in 2011 is significantly greater than the mean for other years.
+
 
 
