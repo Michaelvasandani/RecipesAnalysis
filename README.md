@@ -171,21 +171,58 @@ The dataset contains missing values in various columns, with one notable candida
 
 To determine if the missingness in **CUSTOMERS.AFFECTED** is MAR (Missing At Random) or NMAR, additional data would be required. Specifically, collecting information on the reporting practices of individual companies could help identify whether the missingness is related to unreported customer impacts during outages.
 
-### Dependency Testing for Missingness
-To further explore the missingness patterns in the dataset, we investigated whether the missingness in certain columns is dependent on other features. The analysis included testing **CUSTOMERS.AFFECTED** against categorical variables such as **U.S._STATE** and **MONTH**.
+---
+### Checking for MCAR and MAR data
 
-#### Dependency with U.S._STATE
-We tested whether the missingness in **CUSTOMERS.AFFECTED** is associated with the **U.S._STATE** column. Using a permutation-based approach, we calculated the observed Total Variation Distance (TVD) and compared it against the null distribution. The results showed an observed TVD of **0.3671** and a p-value of **0.0000**, indicating that the missingness in **CUSTOMERS.AFFECTED** is significantly dependent on **U.S._STATE**. This suggests that certain states might be more likely to report missing customer data.
+#### Dependency of `CUSTOMERS.AFFECTED` Missingness on `U.S._STATE`
 
-#### Dependency with MONTH
-Similarly, we examined whether the missingness in **DEMAND.LOSS.MW** is dependent on the **MONTH** column. The observed TVD for this test was **0.1021**, with a p-value of **0.0172**, leading us to conclude that the missingness in **DEMAND.LOSS.MW** is also MAR, but less strongly dependent on the **MONTH** variable.
+**Objective:**  
+Determine whether the missingness of `CUSTOMERS.AFFECTED` is dependent on `U.S._STATE`.
+
+**Hypotheses:**  
+- **Null Hypothesis (H₀):** The missingness of `CUSTOMERS.AFFECTED` is **not** dependent on `U.S._STATE`.  
+- **Alternative Hypothesis (H₁):** The missingness of `CUSTOMERS.AFFECTED` is dependent on `U.S._STATE`.
+
+**Results:**  
+- **p-value:** 0.00  
+- **Decision:** p-value < 0.01, **reject** the null hypothesis.  
+- **Conclusion:** The missingness of `CUSTOMERS.AFFECTED` **is** dependent on `U.S._STATE`.
+
+<iframe
+  src="marCUSTOMERS.AFFECTEDagainstU.S._STATE.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+---
+
+#### Dependency of `DEMAND.LOSS` Missingness on `MONTH`
+
+**Objective:**  
+Assess whether the missingness of `DEMAND.LOSS` is dependent on `MONTH`.
+
+**Hypotheses:**  
+- **Null Hypothesis (H₀):** The missingness of `DEMAND.LOSS` is **not** dependent on `MONTH`.  
+- **Alternative Hypothesis (H₁):** The missingness of `DEMAND.LOSS` is dependent on `MONTH`.
+
+**Results:**  
+- **p-value:** 0.0172  
+- **Decision:** p-value > 0.01, **fail to reject** the null hypothesis.  
+- **Conclusion:** The missingness of `DEMAND.LOSS` is **Missing Completely at Random (MCAR)** with respect to `MONTH`.
+
+<iframe
+  src="marDEMAND.LOSSagainstMONTH.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 
 ### Imputation Strategy
 To address the missing values in **CUSTOMERS.AFFECTED**, we implemented a probabilistic imputation approach. Missing values were filled by sampling from the observed data within the same **U.S._STATE** group. If a group contained entirely missing values, default values based on the global mean or median were used. This strategy ensures that the imputed values are contextually relevant while preserving overall data integrity.
 
-### Conclusion
-This assessment highlights the importance of understanding missingness patterns within the dataset. By identifying dependencies and implementing a thoughtful imputation strategy, we ensured that the dataset was ready for analysis while minimizing biases introduced by missing values. Future improvements could involve acquiring more comprehensive data to reduce reliance on imputation.
-
+---
 
 ## Hypothesis Testing 
 
